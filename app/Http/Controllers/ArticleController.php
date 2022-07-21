@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\User;
 use http\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -37,7 +38,6 @@ class ArticleController extends Controller
     {
         return view('articles.create');
     }
-
 
     public function store(StoreArticleRequest $request)
     {
@@ -98,12 +98,13 @@ class ArticleController extends Controller
             ->with('success', 'Article deleted successfully');
     }
 
-    public function dash()
+    public function dash(request $request)
     {
-
         if (Auth::user()->role==0)
         {
-        return view('articles.dash',compact('articles','all_tags'));
+            $articles = Article::all();
+            dd($articles);
+        return view('articles.dash',compact('articles'));
         }else
         {
             return back()->withErrors(['message'=>'you are not admin']);

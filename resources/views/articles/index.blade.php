@@ -8,7 +8,7 @@
                 <div class="card">
             <h2 class="text-muted">Welcome to our blog</h2>
 
-                    {{--                    <a  class="btn" href="{{ view('articles.dash') }}  ">dashboard</a>--}}
+    <a  class="btn" href="{{ view('articles.dash') }}  ">dashboard</a>
             <hr>
         </div>
         <div class="row">

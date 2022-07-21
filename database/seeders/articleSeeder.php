@@ -20,13 +20,15 @@ class articleSeeder extends Seeder
      */
     public function run()
     {
+
         $faker=Faker::create();
         foreach (range(1,100) as $index) {
             DB::table('articles')->insert([
-//                'user_id'=>$faker->randomDigit(),
+                'user_id'=>random_int(1,4),
                 'title' => $faker->sentence(5),
                 'description' => $faker->paragraph(4)
             ]);
         }
     }
+
 }

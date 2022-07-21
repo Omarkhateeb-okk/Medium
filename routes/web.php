@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//
 Route::get('/', function() {
-    return redirect()->route('articles.index');
+    return view('articles.index');
 });
-
+Route::get('articles/dash','ArticleController@dash')->name('dash');
 Route::resource('articles', 'ArticleController');
-//Route::get('dash', 'ArticleController@dash')->name('dash');
+
 
 Auth::routes();
 
